@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "795259530655",
+    "project_id": "gomodiarect-9b1f0",
+    "storage_bucket": "gomodiarect-9b1f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795259530655:android:65fd040fc0440a57a8a1aa",
+        "android_client_info": {
+          "package_name": "com.example.gomodiarect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795259530655-o7domuqh2iagr0ijos1ta1ai4fd5kshm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEDFDM3y0SNg9UFVZII-o3WvOk5DvDh9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795259530655-o7domuqh2iagr0ijos1ta1ai4fd5kshm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
