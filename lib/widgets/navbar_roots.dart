@@ -1,9 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:gomodiarect/screens/home_screen.dart';
-import 'package:gomodiarect/screens/profile_page.dart';
+import 'package:gomodiarect/screens/home.dart';
 
 import '../screens/camera_screen.dart';
+import '../screens/profile.dart';
 import '../screens/reports_screen.dart';
 
 class NavBarRoots extends StatefulWidget {
@@ -12,18 +13,16 @@ class NavBarRoots extends StatefulWidget {
 }
 
 class _NavBarRootState extends State<NavBarRoots> {
-
   int _selectedIndex = 0;
-  final _screens =[
+  final _screens = [
     // Home Screen
-    AppointmentScreen(),
+    ProfilePage(),
     // Messages Screen
     ImagePickerApp(),
     // Schedule Screen
     Reports(),
     //Settings Screen
     //Container(),
-
   ];
 
   @override
@@ -37,7 +36,7 @@ class _NavBarRootState extends State<NavBarRoots> {
           backgroundColor: Colors.white,
           color: Colors.deepPurple,
           animationDuration: Duration(milliseconds: 200),
-         /* type: BottomNavigationBarType.fixed,
+          /* type: BottomNavigationBarType.fixed,
           selectedItemColor: Color(0xFF7165D6),
           unselectedItemColor: Colors.black26,
           selectedLabelStyle: TextStyle (
@@ -46,7 +45,7 @@ class _NavBarRootState extends State<NavBarRoots> {
           ), //TextStyle
           currentIndex: _selectedIndex,
           */
-          onTap: (index){
+          onTap: (index) {
             setState(() {
               _selectedIndex = index;
             });
@@ -55,22 +54,22 @@ class _NavBarRootState extends State<NavBarRoots> {
             Icon(
               Icons.home,
               color: Colors.white,
-            ),//BottomNavigationBarItem
+            ), //BottomNavigationBarItem
             Icon(
               Icons.camera,
               color: Colors.white,
-            ),//BottomNavigationBarItem
+            ), //BottomNavigationBarItem
             Icon(
               Icons.edit_document,
               color: Colors.white,
-            ),//BottomNavigationBarItem
+            ), //BottomNavigationBarItem
             // BottomNavigationBarItem(
             //   icon: Icon(Icons.settings),
             //   label: "Settings",
             // ),//BottomNavigationBarItem
           ],
-        ),//BottomNavigationBarItem
+        ), //BottomNavigationBarItem
       ),
-    );//Scaffold
+    ); //Scaffold
   }
 }
