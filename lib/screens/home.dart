@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:gomodiarect/screens/profile.dart';
+import 'package:gomodiarect/screens/profile_page.dart';
 import 'package:gomodiarect/screens/settings_screen.dart';
 import 'package:gomodiarect/screens/welcome_screen.dart';
-import 'package:gomodiarect/screens/profile.dart';
+import 'package:gomodiarect/screens/profile_page.dart';
 
 class AppointmentScreen extends StatelessWidget {
   List imgs = [

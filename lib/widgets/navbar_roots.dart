@@ -4,7 +4,7 @@ import 'package:gomodiarect/screens/home_screen.dart';
 import 'package:gomodiarect/screens/home.dart';
 
 import '../screens/camera_screen.dart';
-import '../screens/profile.dart';
+import '../screens/profile_page.dart';
 import '../screens/reports_screen.dart';
 
 class NavBarRoots extends StatefulWidget {

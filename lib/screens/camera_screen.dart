@@ -63,7 +63,10 @@ class _imagePickerAppState extends State<ImagePickerApp> {
                   height: 250,
                   fit: BoxFit.cover,
                 )
-              : Image.asset("images/eyes.jpg"),
+              : Image.asset(
+                  "images/shutter.jpg",
+                  height: 150,
+                ),
           SizedBox(
             height: 20,
           ),
@@ -135,16 +138,16 @@ class _imagePickerAppState extends State<ImagePickerApp> {
         ])));
   }
 }
-
-Widget CustomButton({
-  required String title,
-  required IconData icon,
-  required VoidCallback onClick,
-}) {
-  return Container(
-      width: 280,
-      child: ElevatedButton(
-          onPressed: onClick,
-          child:
-              Row(children: [Icon(icon), SizedBox(width: 10), Text(title)])));
-}
+//
+// Widget CustomButton({
+//   required String title,
+//   required IconData icon,
+//   required VoidCallback onClick,
+// }) {
+//   return Container(
+//       width: 280,
+//       child: ElevatedButton(
+//           onPressed: onClick,
+//           child:
+//               Row(children: [Icon(icon), SizedBox(width: 10), Text(title)])));
+// }

@@ -9,9 +9,9 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  String name = "John Doe";
-  String phoneNumber = "+1 (123) 456-7890";
-  String emailAddress = "john.doe@example.com";
+  String name = "Sanidhya Vijay";
+  String phoneNumber = "9010112211";
+  String emailAddress = "sanidhya@gmail.com";
 
   void _editProfile() async {
     Map<String, String> updatedInfo = await Navigator.push(
@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(height: 20),
             CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage("assets/doctors.png"),
+              backgroundImage: AssetImage("images/person.png"),
               backgroundColor: Colors.white,
             ),
             SizedBox(height: 20),
@@ -104,14 +104,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
             ),
-            SizedBox(height: 180),
+            SizedBox(height: 80),
             SingleChildScrollView(
                 child: Container(
-              height: 117.8,
+              height: 217.9,
               width: double.infinity,
               padding: EdgeInsets.only(
-                top: 20,
-                left: 15,
+                top: 45,
+                left: 10,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
