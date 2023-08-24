@@ -76,24 +76,25 @@ class _imagePickerAppState extends State<ImagePickerApp> {
             child: SizedBox(
               width: double.infinity,
               child: Material(
-                  color: Color(0xFF7165D6),
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () => getImage(ImageSource.gallery),
-                    child: Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                        child: Center(
-                          child: Text(
-                            "Pick from Gallery",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )),
-                  )),
+                color: Color(0xFF7165D6),
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  onTap: () => getImage(ImageSource.gallery),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                    child: Center(
+                      child: Text(
+                        "Pick from Gallery",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
           SizedBox(
