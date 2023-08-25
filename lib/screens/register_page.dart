@@ -31,10 +31,9 @@ class _RegisterPageState extends State<RegisterPage> {
 
     final bool isValid = EmailValidator.validate(emailTextController.text);
 
-    if (emailTextController.text.split('@')[1] != 'thapar.edu' ||
-        isValid == false) {
+    if (isValid == false) {
       Navigator.pop(context);
-      displayMessage("Not a valid Thapar email");
+      displayMessage("Not a valid email");
       return;
     }
 
@@ -79,62 +78,67 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Colors.grey[300]!,
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.lock,
-                  size: 100,
-                ),
-                const SizedBox(height: 50),
-                Text('Let\'s create an account for you',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[700],
-                    )),
-                const SizedBox(height: 25),
-                MyTextField(
-                    controller: emailTextController,
-                    hintText: 'Email',
-                    obscureText: false),
-                const SizedBox(height: 10),
-                MyTextField(
-                    controller: passwordTextController,
-                    hintText: 'Password',
-                    obscureText: true),
-                const SizedBox(height: 10),
-                MyTextField(
-                    controller: confirmPasswordController,
-                    hintText: 'Confirm Password',
-                    obscureText: true),
-                const SizedBox(height: 10),
-                MyButton(
-                  onTap: signUp,
-                  text: 'Sign Up',
-                ),
-                const SizedBox(height: 25),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text("Already have an account?",
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(20),
+                    child: Image.asset(
+                      "images/doctors.png",
+                      height: 200,
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  Text('Create a new account',
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.grey[700],
-                      )),
-                  const SizedBox(width: 4),
-                  GestureDetector(
-                    onTap: widget.onTap,
-                    child: const Text("Login now",
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[700],
+                          fontSize: 18)),
+                  const SizedBox(height: 25),
+                  MyTextField(
+                      controller: emailTextController,
+                      hintText: 'Email',
+                      obscureText: false),
+                  const SizedBox(height: 10),
+                  MyTextField(
+                      controller: passwordTextController,
+                      hintText: 'Password',
+                      obscureText: true),
+                  const SizedBox(height: 10),
+                  MyTextField(
+                      controller: confirmPasswordController,
+                      hintText: 'Confirm Password',
+                      obscureText: true),
+                  const SizedBox(height: 10),
+                  MyButton(
+                    onTap: signUp,
+                    text: 'Sign Up',
+                  ),
+                  const SizedBox(height: 25),
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Text("Already have an account?",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Colors.grey[700],
                         )),
-                  )
-                ])
-              ],
+                    const SizedBox(width: 4),
+                    GestureDetector(
+                      onTap: widget.onTap,
+                      child: const Text("Login now",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          )),
+                    )
+                  ])
+                ],
+              ),
             ),
           ),
         ),

@@ -34,7 +34,7 @@ class _NavBarRootState extends State<NavBarRoots> {
         height: 80,
         child: CurvedNavigationBar(
           backgroundColor: Colors.white,
-          color: Colors.deepPurple,
+          color: Colors.deepPurple[600]!,
           animationDuration: Duration(milliseconds: 200),
           /* type: BottomNavigationBarType.fixed,
           selectedItemColor: Color(0xFF7165D6),
@@ -52,7 +52,7 @@ class _NavBarRootState extends State<NavBarRoots> {
           },
           items: [
             Icon(
-              Icons.home,
+              Icons.person,
               color: Colors.white,
             ), //BottomNavigationBarItem
             Icon(

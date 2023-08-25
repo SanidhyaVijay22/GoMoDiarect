@@ -19,13 +19,12 @@ class MyTextField extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         enabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.secondary),
+          borderSide: BorderSide(color: Colors.grey[300]!),
         ),
         focusedBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.white),
         ),
-        fillColor: Theme.of(context).colorScheme.primary,
+        fillColor: Colors.grey[200]!,
         filled: true,
         hintText: hintText,
         hintStyle: TextStyle(
