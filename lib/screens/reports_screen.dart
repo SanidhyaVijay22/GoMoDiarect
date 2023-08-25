@@ -37,7 +37,7 @@ class _ReportsState extends State<Reports> {
 
     setState(() {
       imageUrls = urls;
-      imageUploadTimes = uploadTimes;
+      imageUploadTimes = uploadTimes.reversed.toList();
     });
   }
 

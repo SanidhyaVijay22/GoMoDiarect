@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(height: 80),
+              SizedBox(height: 30),
               Text(
                 "GoMoDiarect",
                 style: TextStyle(

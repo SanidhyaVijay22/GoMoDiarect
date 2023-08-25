@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: SafeArea(
           child: Column(
             children: [
-              SizedBox(height: 80),
+              SizedBox(height: 30),
               Text(
                 "GoMoDiarect",
                 style: TextStyle(

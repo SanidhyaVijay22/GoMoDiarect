@@ -73,46 +73,48 @@ class _imagePickerAppState extends State<ImagePickerApp> {
         backgroundColor: Colors.deepPurple,
         automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100,
-            ),
-            _image != null
-                ? Image.file(
-                    _image!,
-                    width: 250,
-                    height: 250,
-                    fit: BoxFit.cover,
-                  )
-                : Image.asset(
-                    "images/shutter.jpg",
-                    height: 150,
-                  ),
-            SizedBox(
-              height: 20,
-            ),
-            SizedBox(height: 100),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                width: double.infinity,
-                child: Material(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () => getImage(ImageSource.gallery),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                      child: Center(
-                        child: Text(
-                          "Pick from Gallery",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              _image != null
+                  ? Image.file(
+                      _image!,
+                      width: 250,
+                      height: 250,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(
+                      "images/shutter.jpg",
+                      height: 150,
+                    ),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(height: 100),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Material(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(10),
+                    child: InkWell(
+                      onTap: () => getImage(ImageSource.gallery),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                        child: Center(
+                          child: Text(
+                            "Pick from Gallery",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -120,29 +122,29 @@ class _imagePickerAppState extends State<ImagePickerApp> {
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 0,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                width: double.infinity,
-                child: Material(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.circular(10),
-                  child: InkWell(
-                    onTap: () => getImage(ImageSource.camera),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 40),
-                      child: Center(
-                        child: Text(
-                          "Pick from Camera",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
+              SizedBox(
+                height: 0,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Material(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(10),
+                    child: InkWell(
+                      onTap: () => getImage(ImageSource.camera),
+                      child: Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                        child: Center(
+                          child: Text(
+                            "Pick from Camera",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -150,8 +152,8 @@ class _imagePickerAppState extends State<ImagePickerApp> {
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
