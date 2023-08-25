@@ -1,14 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
   final String currentName;
   final String currentPhoneNumber;
-  final String currentEmailAddress;
+  final VoidCallback refreshUserData; // Define the callback
 
   EditProfilePage({
     required this.currentName,
     required this.currentPhoneNumber,
-    required this.currentEmailAddress,
+    required this.refreshUserData, // Pass the callback
   });
 
   @override
@@ -18,7 +20,6 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _nameController;
   late TextEditingController _phoneNumberController;
-  late TextEditingController _emailAddressController;
 
   @override
   void initState() {
@@ -26,25 +27,35 @@ class _EditProfilePageState extends State<EditProfilePage> {
     _nameController = TextEditingController(text: widget.currentName);
     _phoneNumberController =
         TextEditingController(text: widget.currentPhoneNumber);
-    _emailAddressController =
-        TextEditingController(text: widget.currentEmailAddress);
   }
 
   @override
   void dispose() {
     _nameController.dispose();
     _phoneNumberController.dispose();
-    _emailAddressController.dispose();
     super.dispose();
   }
 
-  void _saveChanges() {
-    Map<String, String> updatedInfo = {
-      'name': _nameController.text,
-      'phoneNumber': _phoneNumberController.text,
-      'emailAddress': _emailAddressController.text,
+  Future<void> _saveChanges() async {
+    String newName = _nameController.text;
+    String newPhoneNumber = _phoneNumberController.text;
+
+    Map<String, dynamic> updatedInfo = {
+      'username': newName,
+      'phone': newPhoneNumber,
     };
-    Navigator.pop(context, updatedInfo);
+
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user != null) {
+      await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(user.email)
+          .set(updatedInfo, SetOptions(merge: true));
+
+      Navigator.pop(context, updatedInfo);
+      widget.refreshUserData(); // Call the callback to refresh the profile page
+    }
   }
 
   @override
@@ -74,11 +85,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
             TextField(
               controller: _phoneNumberController,
               decoration: InputDecoration(labelText: "Phone Number"),
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: _emailAddressController,
-              decoration: InputDecoration(labelText: "Email Address"),
             ),
           ],
         ),

@@ -64,62 +64,89 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300]!,
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Image.asset(
-                      "images/doctors.png",
-                      height: 200,
-                    ),
-                  ),
-                  const SizedBox(height: 30),
-                  Text('Login to your account',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[700],
-                          fontSize: 18)),
-                  const SizedBox(height: 25),
-                  MyTextField(
-                      controller: emailTextController,
-                      hintText: 'Email',
-                      obscureText: false),
-                  const SizedBox(height: 10),
-                  MyTextField(
-                      controller: passwordTextController,
-                      hintText: 'Password',
-                      obscureText: true),
-                  const SizedBox(height: 10),
-                  MyButton(
-                    onTap: signIn,
-                    text: 'Sign In',
-                  ),
-                  const SizedBox(height: 25),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text("Not a member?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey[700],
-                        )),
-                    const SizedBox(width: 4),
-                    GestureDetector(
-                      onTap: widget.onTap,
-                      child: const Text("Register now",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                          )),
-                    )
-                  ])
-                ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Column(
+            children: [
+              SizedBox(height: 80),
+              Text(
+                "GoMoDiarect",
+                style: TextStyle(
+                  color: Color(0xFF7165D6),
+                  fontSize: 55,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1,
+                  wordSpacing: 2,
+                ),
               ),
-            ),
+              Text(
+                "Portable DR Detection",
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              SizedBox(height: 10),
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 20),
+                      Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Image.asset(
+                          "images/doctors.png",
+                          height: 180,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text('Login to your account',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey[700],
+                              fontSize: 18)),
+                      const SizedBox(height: 25),
+                      MyTextField(
+                          controller: emailTextController,
+                          hintText: 'Email',
+                          obscureText: false),
+                      const SizedBox(height: 10),
+                      MyTextField(
+                          controller: passwordTextController,
+                          hintText: 'Password',
+                          obscureText: true),
+                      const SizedBox(height: 10),
+                      MyButton(
+                        onTap: signIn,
+                        text: 'Sign In',
+                      ),
+                      const SizedBox(height: 25),
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Not a member?",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.grey[700],
+                                )),
+                            const SizedBox(width: 4),
+                            GestureDetector(
+                              onTap: widget.onTap,
+                              child: const Text("Register now",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue,
+                                  )),
+                            )
+                          ])
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

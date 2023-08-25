@@ -11,6 +11,7 @@ class Reports extends StatefulWidget {
 
 class _ReportsState extends State<Reports> {
   List<String> imageUrls = [];
+  List<DateTime> imageUploadTimes = [];
 
   @override
   void initState() {
@@ -23,12 +24,20 @@ class _ReportsState extends State<Reports> {
         .ref('images') // Replace 'images' with your Firebase Storage folder
         .listAll();
 
-    List<String> urls = await Future.wait(result.items.map((ref) async {
-      return await ref.getDownloadURL();
+    List<String> urls = [];
+    List<DateTime> uploadTimes = [];
+
+    await Future.wait(result.items.map((ref) async {
+      final metadata = await ref.getMetadata();
+      final uploadTime = metadata.timeCreated ?? DateTime.now();
+
+      urls.add(await ref.getDownloadURL());
+      uploadTimes.add(uploadTime);
     }));
 
     setState(() {
       imageUrls = urls;
+      imageUploadTimes = uploadTimes;
     });
   }
 
@@ -42,35 +51,37 @@ class _ReportsState extends State<Reports> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: imageUrls
-              .map((imageUrl) => Card(
-                    margin: EdgeInsets.all(10),
-                    color: Colors.deepPurple[300],
-                    shadowColor: Colors.blueGrey,
-                    elevation: 10,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          left: 10, right: 30.0, top: 30.0, bottom: 30.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          ListTile(
-                            leading: Image.network(
-                                imageUrl), // Use Image.network to fetch images from the URL
-                            title: Text(
-                              "Level ${imageUrls.indexOf(imageUrl)}",
-                              style: TextStyle(fontSize: 21),
-                            ),
-                            subtitle: Text(
-                              'Date: ${DateFormat('dd-MM-yyyy HH:mm').format(DateTime.now())}',
-                              style: TextStyle(fontSize: 15),
-                            ),
-                          ),
-                        ],
+          children: List.generate(imageUrls.length, (index) {
+            final imageUrl = imageUrls[index];
+            final uploadTime = imageUploadTimes[index];
+
+            return Card(
+              margin: EdgeInsets.all(10),
+              color: Colors.deepPurple[300],
+              shadowColor: Colors.blueGrey,
+              elevation: 10,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 10, right: 30.0, top: 30.0, bottom: 30.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Image.network(imageUrl),
+                      title: Text(
+                        "Level ${imageUrls.length - 1 - index}",
+                        style: TextStyle(fontSize: 21),
+                      ),
+                      subtitle: Text(
+                        'Uploaded on: ${DateFormat('dd-MM-yyyy HH:mm').format(uploadTime)}',
+                        style: TextStyle(fontSize: 15),
                       ),
                     ),
-                  ))
-              .toList(),
+                  ],
+                ),
+              ),
+            );
+          }),
         ),
       ),
     );
