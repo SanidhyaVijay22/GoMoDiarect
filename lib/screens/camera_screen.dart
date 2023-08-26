@@ -100,6 +100,7 @@ class _imagePickerAppState extends State<ImagePickerApp> {
                 child: SizedBox(
                   width: double.infinity,
                   child: Material(
+                    elevation: 30,
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
@@ -130,6 +131,7 @@ class _imagePickerAppState extends State<ImagePickerApp> {
                 child: SizedBox(
                   width: double.infinity,
                   child: Material(
+                    elevation: 30,
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(

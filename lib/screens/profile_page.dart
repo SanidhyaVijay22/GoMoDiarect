@@ -147,6 +147,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   width: 300,
                   height: 60,
                   child: Material(
+                    elevation: 30,
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.circular(20),
                     child: InkWell(
