@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -53,9 +54,12 @@ class _imagePickerAppState extends State<ImagePickerApp> {
   }
 
   Future<void> uploadImageToFirebase(File imageFile) async {
-    final Reference storageReference = FirebaseStorage.instance
-        .ref()
-        .child('images/${DateTime.now().millisecondsSinceEpoch}.jpg');
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    final email = user.email;
+    final storageReference = FirebaseStorage.instance.ref().child(
+        'user_images/$email/${DateTime.now().millisecondsSinceEpoch}.jpg');
 
     final UploadTask uploadTask = storageReference.putFile(imageFile);
 
